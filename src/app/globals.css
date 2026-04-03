@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5F0E8;
+  --ink: #1A1612;
+  --gold: #B8860B;
+  --gold-light: #D4A520;
+  --gold-pale: #F5EDD0;
+  --muted: #6B6157;
+  --green: #1A5C3A;
+  --green-light: #E8F3EC;
+  --red-vakif: #8B2020;
+  --border: rgba(26,22,18,0.12);
+  --border-strong: rgba(26,22,18,0.28);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+
+/* File drop animations */
+.file-drop-zone {
+  transition: border-color 0.18s, background 0.18s;
+}
+.file-drop-zone.dragover {
+  border-color: var(--gold) !important;
+  background: var(--gold-pale) !important;
+}
+
+/* Card hover */
+.member-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.member-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(26,22,18,0.13);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.modal-box {
+  animation: slideUp 0.18s ease;
+}
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Toast */
+.toast-enter {
+  animation: toastIn 0.2s ease;
+}
+@keyframes toastIn {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Table row hover */
+.tbl-row { transition: background 0.1s; }
+.tbl-row:hover { background: #FDFAF5; }
+
+/* Gold line top */
+.gold-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+}
+.green-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--green);
+}
+.red-top::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red-vakif);
+}
